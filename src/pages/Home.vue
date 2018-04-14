@@ -6,6 +6,9 @@
       <a v-if="currentUser" @click="signOut()">Sign out</a>
       <span v-if="currentUser">{{ currentUser.displayName }}</span>
     </div>
+    <div v-if="currentUser">
+      <router-link :to="{ name: 'newChannel' }">Create New Channel</router-link>
+    </div>
   </div>
 </template>
 
