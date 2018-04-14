@@ -4,7 +4,7 @@
     <div>
       <a v-if="!currentUser" @click="signIn()">Sign in</a>
       <a v-if="currentUser" @click="signOut()">Sign out</a>
-      <a @click="checkUser()">Check User</a>
+      <span v-if="currentUser">{{ currentUser.displayName }}</span>
     </div>
   </div>
 </template>
@@ -30,9 +30,16 @@ export default {
 				console.log('errorCode', errorCode, 'errorMessage', errorMessage, 'email', email)
 			})
     },
-    checkUser () {
-      console.log('checkUser', firebase.auth().currentUser)
+    signOut () {
+      firebase.auth().signOut()
+    },
+    onAuthStateChanged (user) {
+      console.log('vue.onAuthStateChanged user', user)
+      this.currentUser = user
     }
+  },
+  created () {
+    firebase.auth().onAuthStateChanged(this.onAuthStateChanged)
   }
 }
 </script>

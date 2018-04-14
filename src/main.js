@@ -12,12 +12,8 @@ const config = {
 	messagingSenderId: "413700252041",
 }
 const firebaseApp = firebase.initializeApp(config)
-const messaging = firebaseApp.messaging()
-messaging.usePublicVapidKey("BIC1tflO5r6HfcY4TEAurgJ83sCPsQY_sifAEg8Y02fj8Ic578cQSNd5hlmgI26FIHEsLVVmm0YwNNddE5dpMaQ")
-
-firebase.auth().onAuthStateChanged((user) => {
-  console.log('onAuthStateChanged user', user)
-})
+// const messaging = firebaseApp.messaging()
+// messaging.usePublicVapidKey("BIC1tflO5r6HfcY4TEAurgJ83sCPsQY_sifAEg8Y02fj8Ic578cQSNd5hlmgI26FIHEsLVVmm0YwNNddE5dpMaQ")
 
 // messaging.requestPermission().then(function() {
 //   console.log('Notification permission granted.')
@@ -27,6 +23,7 @@ firebase.auth().onAuthStateChanged((user) => {
 //   console.log('Unable to get permission to notify.', err)
 // })
 
-new Vue({
+const vue = new Vue({
   render: h => h(App)
 }).$mount('#app')
+
