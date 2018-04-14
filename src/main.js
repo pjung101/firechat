@@ -2,6 +2,7 @@ import VueFire from 'vuefire'
 import firebase from 'firebase'
 import Vue from 'vue'
 import App from './App.vue'
+import router from './router/index.js'
 
 Vue.config.productionTip = false
 Vue.use(VueFire)
@@ -23,7 +24,8 @@ const firebaseApp = firebase.initializeApp(config)
 //   console.log('Unable to get permission to notify.', err)
 // })
 
-const vue = new Vue({
+new Vue({
+  router,
   render: h => h(App)
 }).$mount('#app')
 
